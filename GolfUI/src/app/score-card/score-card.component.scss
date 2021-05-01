@@ -1,0 +1,46 @@
+.content {
+    border: solid 1px black;
+    border-radius: 2px;
+    height: 400px;
+    display: flex;
+    .labels {
+        display: grid;
+        grid-template-rows: 25px 25px 25px;
+        width: 50px;
+        span {
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            display: flex;
+            align-items: center;
+            background: silver;
+        }
+    }
+    .half {
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        width: 50%;
+        grid-template-rows: 25px 25px 25px;
+    }
+    .spacer {
+        width: 10px;
+        background: black;
+    }
+    .box {
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:nth-child(9n) {
+            border-right: none;
+        }
+        &.hole-number {
+            background: silver;
+            font-weight: bold;
+        }
+        &.par {
+            background: green;
+            color: white;
+        }
+    }
+}

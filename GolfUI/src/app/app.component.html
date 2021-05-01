@@ -1,0 +1,19 @@
+<h1>
+  Welcome to the Golf App  -  Shoot Straight!
+</h1>
+<button [routerLink]="'add-course'">Add Course</button>
+<div>
+  <div *ngFor="let golfer of golfers">
+    <span>{{ golfer.firstName }}</span>
+    <span>{{ golfer.lastName }}</span>
+    <div *ngFor="let round of golfer.rounds">
+      <span>{{ round.date }}</span>
+      <span>{{ round.overallScore }}</span>
+      <span>{{ round.courseId }}</span>
+    </div>
+  </div>
+</div>
+
+<app-score-card [round]="selectedRound"></app-score-card>
+
+<router-outlet></router-outlet>
