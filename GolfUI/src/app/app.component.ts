@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Course, Golfer, Round } from './models/golfer';
 import { DataService } from './services/data.service';
+import { GolferService } from './services/golfer.service';
 
 @Component({
   selector: 'app-root',
@@ -11,17 +13,22 @@ export class AppComponent implements OnInit {
   title = 'GolfUI';
   golfers: Golfer[] = [];
   courses: Course[];
-  selectedRound: Round;
+  selectedGolfer: Golfer;
 
-  constructor(private dataService: DataService) { }
-  
+  constructor(private dataService: DataService, private golferService: GolferService) { }
+
   ngOnInit() {
     this.dataService.getGolfers().subscribe((res: Golfer[]) => {
       this.golfers = res;
-      this.selectedRound = this.golfers[0].rounds[1];
+      this.golferService.setGolfers(res);
     });
     this.dataService.getCourses().subscribe((res: Course[]) => {
       this.courses = res;
     });
   }
+
+  setSelectedGolfer(golfer: Golfer) {
+    this.selectedGolfer = golfer;
+  }
+
 }

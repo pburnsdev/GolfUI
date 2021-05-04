@@ -1,0 +1,15 @@
+.content {
+    margin-top: 16px;
+}
+.selected-golfer {
+    cursor: pointer;
+    width: fit-content;
+    .round {
+        &:hover {
+            background: lightblue;
+        }
+    }
+}
+.selected {
+    background: lightblue;
+}

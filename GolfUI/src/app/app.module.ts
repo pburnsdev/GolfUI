@@ -6,12 +6,16 @@ import { ScoreCardComponent } from './score-card/score-card.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { FormsModule } from '@angular/forms';
+import { AddRoundComponent } from './add-round/add-round.component';
+import { GolferDetailsComponent } from './golfer-details/golfer-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ScoreCardComponent,
-    AddCourseComponent
+    AddCourseComponent,
+    AddRoundComponent,
+    GolferDetailsComponent
   ],
   imports: [
     BrowserModule,

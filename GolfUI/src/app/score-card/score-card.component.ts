@@ -8,15 +8,23 @@ import { Round, RoundHole } from '../models/golfer';
 })
 export class ScoreCardComponent implements OnInit {
 
+  courseName: string = 'Deerfield';
+
   _round: Round;
   get round() {
     return this._round
   }
 
   @Input() set round(val: Round) {
-    if (!val) { return; }
+    if (!val) { 
+      this._round = null;
+      this._frontNine = [];
+      this._backNine = [];
+      return;
+    }
+    this._round = val;
     this.frontNine = val.roundHoles.slice(0, 9);
-    this.backNine = val.roundHoles.slice(0, 9);
+    this.backNine = val.roundHoles.slice(9, 18);
   }
 
   _frontNine: RoundHole[];

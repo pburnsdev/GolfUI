@@ -1,0 +1,13 @@
+<div class="content">
+    <div *ngIf="selectedGolfer" class="selected-golfer">
+        <h2>{{ selectedGolfer.firstName}}'s Rounds</h2>
+        <div *ngFor="let round of selectedGolfer.rounds" class="round">
+          <div (click)="setRound(round)" [ngClass]="{'selected': round === selectedRound}">
+            <span>{{ round.course.name}}  -  {{ round.date | date}}</span>
+          </div>
+        </div>
+    
+      </div>
+    <app-score-card [round]="selectedRound"></app-score-card>
+
+</div>

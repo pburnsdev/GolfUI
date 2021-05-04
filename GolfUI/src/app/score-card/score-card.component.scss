@@ -1,18 +1,30 @@
 .content {
     border: solid 1px black;
     border-radius: 2px;
-    height: 400px;
     display: flex;
+    flex-direction: column;
+    .info {
+        height: 40px;
+        background: black;
+        color: white;
+        font-size: 28px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        justify-content: space-between;
+        padding: 4px;
+    }
     .labels {
         display: grid;
         grid-template-rows: 25px 25px 25px;
-        width: 50px;
+        width: 60px;
         span {
             border-right: 1px solid black;
             border-bottom: 1px solid black;
             display: flex;
             align-items: center;
             background: silver;
+            padding: 5px;
         }
     }
     .half {
@@ -42,5 +54,18 @@
             background: green;
             color: white;
         }
+    }
+}
+.overall {
+    display: flex;
+    justify-content: flex-end;
+    padding: 4px;
+    background: black;
+    color: white;
+    height: 40px;
+    align-items: center;
+    span {
+        font-weight: bold;
+        font-size: 24px;
     }
 }

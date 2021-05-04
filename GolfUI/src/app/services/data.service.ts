@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Course, Golfer, NewCourseRequest, Round } from '../models/golfer';
+import { Course, Golfer, NewCourseRequest, NewRoundRequest, Round } from '../models/golfer';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  
   private _url = 'https://localhost:5001/api/';
   
   constructor(private http: HttpClient) { }
@@ -31,4 +30,10 @@ export class DataService {
     const url = this._url + 'courses';
     return this.http.post(url, req);
   }
+  
+  public addNewRound(req: NewRoundRequest) {
+    const url = this._url + 'rounds';
+    return this.http.post(url, req);
+  }
 }
+

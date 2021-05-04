@@ -1,0 +1,13 @@
+.golfer {
+    cursor: pointer;
+    &:hover {
+        background: lightblue;
+    }
+}
+.top {
+    display: flex;
+}
+.selected {
+    background: lightblue;
+
+}

@@ -6,13 +6,15 @@ export class Golfer {
 }
 
 export class Course {
-    id: string;
+    id: number;
     name: string;
     par: number;
+    holes: Hole[];
 }
 
 export class Round {
     id: number;
+    course: Course;
     courseId: number;
     golferId: number;
     date: Date;
@@ -24,11 +26,13 @@ export class Round {
 export class Hole {
     par: number;
     holeNumber: number;
+    id?: number;
 }
 
 export class RoundHole {
     id: number;
-    holdId: number;
+    hole: Hole;
+    holeId: number;
     roundId: number;
     score: number;
     scoreType: string;
@@ -37,4 +41,11 @@ export class RoundHole {
 export class NewCourseRequest {
     name: string;
     holes: Hole[];
+}
+
+export class NewRoundRequest {
+    golferId: number;
+    courseId: number;
+    date: Date | string;
+    roundHoles: RoundHole[];
 }

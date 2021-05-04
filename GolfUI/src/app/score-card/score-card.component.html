@@ -1,34 +1,53 @@
-<div class="content">
-    <div class="labels">
-        <span>Hole #</span>
-        <span>Par</span>
-        <span>Score</span>
+<div class="content" *ngIf="round">
+    <div class="info">
+        <span>
+            {{ round?.course.name }}
+        </span>
+        <span>
+            {{ round?.date | date}}
+        </span>
     </div>
-    <div class="half">
-        <div *ngFor="let x of frontNine; let i = index" class="box hole-number">
-            {{ i + 1 }}
+    <div style="display: flex;">
+
+        <div class="labels">
+            <span>Hole #</span>
+            <span>Par</span>
+            <span>Score</span>
         </div>
-        <div *ngFor="let x of frontNine; let i = index" class="box par">
-            {{ i * 2 }}
-        </div>
-        <ng-container *ngIf="frontNine && frontNine.length > 0">
-            <div *ngFor="let rh of frontNine; let i = index" class="box">
-                {{ rh.score }}
+        <div class="half">
+            <div *ngFor="let x of frontNine; let i = index" class="box hole-number">
+                {{ i + 1 }}
             </div>
-        </ng-container>
-    </div>
-    <div class="spacer"></div>
-    <div class="half">
-        <div *ngFor="let x of backNine; let i = index" class="box hole-number">
-            {{ i + 10 }}
+            <ng-container *ngIf="frontNine && frontNine.length > 0">
+                <div *ngFor="let rh of frontNine; let i = index" class="box par">
+                    {{ rh.hole.par }}
+                </div>
+            </ng-container>
+            <ng-container *ngIf="frontNine && frontNine.length > 0">
+                <div *ngFor="let rh of frontNine; let i = index" class="box">
+                    {{ rh.score }}
+                </div>
+            </ng-container>
         </div>
-        <div *ngFor="let x of backNine; let i = index" class="box par">
-            {{ i * 2 }}
-        </div>
-        <ng-container *ngIf="backNine && backNine.length > 0">
-            <div *ngFor="let rh of backNine; let i = index" class="box">
-                {{ rh.score }}
+        <div class="spacer"></div>
+        <div class="half">
+            <div *ngFor="let x of backNine; let i = index" class="box hole-number">
+                {{ i + 10 }}
             </div>
-        </ng-container>
+            <ng-container *ngIf="backNine && backNine.length > 0">
+                <div *ngFor="let rh of backNine; let i = index" class="box par">
+                    {{ rh.hole.par }}
+                </div>
+            </ng-container>
+            <ng-container *ngIf="backNine && backNine.length > 0">
+                <div *ngFor="let rh of backNine; let i = index" class="box">
+                    {{ rh.score }}
+                </div>
+            </ng-container>
+        </div>
     </div>
+</div>
+<div class="overall" *ngIf="round">
+    <span>Overall Score &nbsp; </span>
+    <span>{{round.overallScore }}</span>
 </div>

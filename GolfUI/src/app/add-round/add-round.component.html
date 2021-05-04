@@ -1,0 +1,15 @@
+<h1>Add Round</h1>
+<form (submit)="submitRound($event)">
+    <select (change)="courseSelectionChange($event)">
+        <option *ngFor="let course of courses">{{ course.name }}</option>
+    </select>
+    <select (change)="courseSelectionChange($event)">
+        <option *ngFor="let golfer of golfers">{{ golfer.firstName }} {{golfer.lastName }}</option>
+    </select>
+    <div *ngFor="let x of numberOfHoles; let i = index">
+    <span>Hole #{{ i + 1 }}</span>
+    <span>Par</span>
+    <input type="number"/>
+</div>
+<button type="submit">Submit</button>
+</form>
